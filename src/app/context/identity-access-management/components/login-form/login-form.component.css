@@ -5,14 +5,16 @@
     margin-top: 50px;
   }
   
-  .logo {
-    width: 60px;
-    height: 60px;
+  img {
+    width: 130px;
+    height: 130px;
   }
   
   h2 {
-    font-size: 24px;
+    font-size: 45px;
+    font-weight: 600;
     color: #002855;
+    margin-top: 20px;
     margin-bottom: 20px;
   }
   
@@ -20,16 +22,17 @@
     width: 100%;
     max-width: 400px;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
   }
   
   h3 {
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: 600;
     margin-bottom: 20px;
-    color: #002855;
+    color: #002244;
   }
   
   .full-width {
