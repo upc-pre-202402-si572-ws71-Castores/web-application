@@ -3,11 +3,11 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'sign-in',
+        redirectTo: 'create-request',
         pathMatch: 'full',
       },
       {
-        path: '',
+        path: 'auth',
         loadComponent: () =>
           import('./shared/pages/auth-page/auth-page.component').then(
             (m) => m.AuthPageComponent,
@@ -21,20 +21,19 @@ export const routes: Routes = [
                   ),
             },
         ],
-      },,
+      },
       {
-        path: '',
+        path: 'app',
         loadComponent: () =>
           import('./shared/pages/app-page/app-page.component').then(
             (m) => m.AppPageComponent
           ),
         children: [
           {
-            path: 'home',
-            //title: 'Home',
+            path: 'create-request',
             loadComponent: () =>
-              import('./context/alerts-system/pages/home/home.component').then(
-                (m) => m.HomeComponent
+              import('./context/service-management/pages/create-request/create-request.component').then(
+                (m) => m.CreateRequestPageComponent
               ),
           },
         ],
