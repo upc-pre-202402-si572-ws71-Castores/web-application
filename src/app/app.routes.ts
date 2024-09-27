@@ -21,6 +21,23 @@ export const routes: Routes = [
                   ),
             },
         ],
+      },,
+      {
+        path: '',
+        loadComponent: () =>
+          import('./shared/pages/app-page/app-page.component').then(
+            (m) => m.AppPageComponent
+          ),
+        children: [
+          {
+            path: 'home',
+            //title: 'Home',
+            loadComponent: () =>
+              import('./context/alerts-system/pages/home/home.component').then(
+                (m) => m.HomeComponent
+              ),
+          },
+        ],
       },
 
 ];
