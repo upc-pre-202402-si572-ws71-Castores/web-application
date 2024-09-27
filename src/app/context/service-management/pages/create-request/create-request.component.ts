@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { CreateRequestFormComponent } from '../../components/create-request-form/create-request-form.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-request-page',

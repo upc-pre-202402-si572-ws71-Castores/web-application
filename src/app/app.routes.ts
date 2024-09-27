@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'create-request',
+        redirectTo: 'sign-in',
         pathMatch: 'full',
       },
       {
@@ -37,6 +37,10 @@ export const routes: Routes = [
               ),
           },
         ],
+      },
+      {
+        path: '**',
+        redirectTo: 'sign-in',
       },
 
 ];
