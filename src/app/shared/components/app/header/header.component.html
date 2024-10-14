@@ -1,6 +1,6 @@
 <mat-toolbar color="#F8F8FB" class="header-toolbar">
   <!-- Parte izquierda del header -->
-  <img src="assets/transportapp-logo.png" alt="Logo" class="logo" />
+  <img src="assets/transportapp-logo.png" alt="Logo" class="logo" [routerLink]="homeRoute" style="cursor: pointer;"/>
   <span class="title">TransportApp</span>
 
   <!-- Parte derecha del header -->
@@ -9,6 +9,6 @@
   <div class="user-info">
     <span>Hi <a>user</a></span>
     <img src="assets/user-avatar.jpg" alt="User Avatar" class="avatar" />
-    <mat-icon>logout</mat-icon> <!-- Aquí puedes usar cualquier ícono que necesites -->
+    <mat-icon style="cursor: pointer;" [routerLink]="['/auth/sign-in']">logout</mat-icon> <!-- Aquí puedes usar cualquier ícono que necesites -->
   </div>
 </mat-toolbar>
