@@ -1,0 +1,31 @@
+<div class="sidebar">
+    <ul class="nav flex-column">
+      <!-- Sidebar dinámico basado en el rol del usuario -->
+      <ul *ngIf="isCarrier; else clientMenu">
+        <li class="nav-item" *ngFor="let route of carrierRoutes">
+          <a class="nav-link" [routerLink]="route.path" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <mat-icon>{{ route.icon }}</mat-icon>{{ route.label }}
+          </a>
+        </li>
+      </ul>
+  
+      <ng-template #clientMenu>
+        <ul>
+          <li class="nav-item" *ngFor="let route of clientRoutes">
+            <a class="nav-link" [routerLink]="route.path" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <mat-icon>{{ route.icon }}</mat-icon>{{ route.label }}
+            </a>
+          </li>
+        </ul>
+      </ng-template>
+  
+      <hr>
+  
+      <!-- Requests (solicitudes) comunes a ambos roles -->
+      <li class="nav-item request-list">
+        <button class="btn request-item">Request 1</button>
+        <button class="btn request-item">Request 2</button>
+        <button class="btn request-item">Request 3</button>
+      </li>
+    </ul>
+  </div>
