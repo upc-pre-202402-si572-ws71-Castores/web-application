@@ -1,0 +1,93 @@
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Profile Card Styles */
+.profile-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-card h2 {
+  margin: 10px 0;
+  font-size: 22px;
+}
+
+.profile-card p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.edit-btn {
+  background-color: #1abc9c;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.edit-btn:hover {
+  background-color: #16a085;
+}
+
+/* Profile Details Styles */
+.profile-details {
+  background-color: white;
+  border-radius: 15px;
+  padding: 60px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.detail-row span {
+  font-weight: bold;
+  color: #333;
+}
+
+.detail-row p {
+  color: #555;
+}
+
+.add-vehicle-btn {
+  background-color: #1abc9c;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+}
+
+.add-vehicle-btn:hover {
+  background-color: #16a085;
+}
