@@ -1,3 +1,14 @@
 .app-page {
     background-color: #E7ECEF;
 }
+.sidebar-content{
+  display: flex;
+  flex-direction: row;
+}
+.content{
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 84px);
+  align-items: center;
+  justify-content: center;
+}

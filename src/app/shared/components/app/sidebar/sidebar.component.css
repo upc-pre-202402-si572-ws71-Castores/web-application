@@ -1,9 +1,9 @@
 /* Sidebar */
 .sidebar {
-    position: fixed;
+    position: static;
     top: 100px; /* Mantiene la separación con el navbar */
     left: 0;
-    height: calc(100vh - 60px); /* Altura completa */
+    height: calc(100vh - 124px); /* Altura completa */
     width: 250px;
     background-color: #E7ECEF; /* Fondo claro */
     padding: 20px;
@@ -12,9 +12,9 @@
     flex-direction: column;
     justify-content: space-between;
     list-style: none; /* Elimina los puntos de la lista */
- 
+
   }
-  
+
   ul ul {
     list-style-type: none;
     margin-block-start: 0px;
@@ -33,20 +33,20 @@
     text-align: center;
     align-items: center;
   }
-  
+
   /* Estilos del contenido */
   .content {
     margin-left: 250px; /* El contenido debe moverse hacia la derecha para no estar encima del sidebar */
     padding: 20px;
   }
-  
+
   /* Elementos de la lista de navegación */
   .nav-item {
     margin-bottom: 10px; /* Añade un espacio entre los elementos para que no queden muy juntos */
     text-align: center;
     align-items: center;
   }
-  
+
   /* Estilo de los enlaces */
   .nav-link {
     list-style: none; /* Elimina los puntos de la lista */
@@ -66,14 +66,14 @@
     transition: background-color 0.2s ease, padding-left 0.2s ease;
     padding-left: 80px; /* Mejora el espaciado de los íconos y el texto */
   }
-  
+
   /* Estilo para el enlace activo */
   .nav-link.active {
     background-color: #002C61; /* Fondo azul para la opción activa */
     color: white; /* Texto blanco para contraste */
     text-align: center;
   }
-  
+
   /* Hover para los enlaces */
   .nav-link:hover {
     background-color: #d0e7ff; /* Fondo más claro en hover */
@@ -81,20 +81,20 @@
     color: #002C61;
     text-align: center;
   }
-  
+
   /* Íconos en los enlaces */
   .nav-link mat-icon {
     margin-right: 10px; /* Espacio entre icono y texto */
 
   }
-  
+
   /* Lista de solicitudes */
   .request-list {
     margin-top: 20px;
     margin-left: -40px;
-    
+
   }
-  
+
   /* Botones de solicitudes */
   .request-item {
     background-color: #EAF3FF;
@@ -104,16 +104,15 @@
     margin: 5px 0;
     border-radius: 10px;
     padding-left: 15px;
-    
+
     padding: 15px;
     border: none;
     text-align: center;
     transition: background-color 0.2s ease, padding-left 0.2s ease;
   }
-  
+
   /* Hover para las solicitudes */
   .request-item:hover {
     background-color: #d0e7ff;
     padding-left: 20px; /* Efecto deslizante */
   }
-  
