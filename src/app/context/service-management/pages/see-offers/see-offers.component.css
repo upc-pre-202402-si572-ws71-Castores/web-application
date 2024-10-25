@@ -1,5 +1,10 @@
 .offers-container {
 }
+.cascade-cards {
+  height: 70vh;
+  overflow-y: auto;
+
+}
 
 h2 {
   font-size: 24px;
