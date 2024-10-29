@@ -7,6 +7,11 @@
   border-radius: 10px;
 }
 
+.container-cards{
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
 /* Profile Card Styles */
 .profile-card {
   background-color: white;
@@ -20,8 +25,8 @@
 }
 
 .profile-image {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: 200px;
   border-radius: 20%;
   object-fit: cover;
 }
@@ -50,6 +55,9 @@
 
 .edit-btn:hover {
   background-color: #16a085;
+}
+.edit-btn:active{
+  background: #21d1ac;
 }
 /* NEW Profile Details Styles */
 .profile-details-titles p{
