@@ -99,9 +99,12 @@ export const routes: Routes = [
           },
         ],
       },
+      // page not found 404
       {
         path: '**',
-        redirectTo: 'sign-in',
+        loadComponent: () =>
+          import('./public/pages/page-not-found/page-not-found.component').then(
+            (m) => m.PageNotFoundComponent,
+          ),
       },
-
 ];
