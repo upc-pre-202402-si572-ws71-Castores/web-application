@@ -7,8 +7,25 @@
   <span class="spacer"></span> <!-- Este span actúa como separador flexible -->
 
   <div class="user-info">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>expand_more</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <p>Languages</p>
+      <button mat-menu-item>
+        <img src="/assets/espana.png"
+        alt="esp" class="flag-icon"/>
+      </button>
+      <button mat-menu-item>
+        <img src="/assets/reino-unido.png"
+             alt="esp" class="flag-icon"/>
+      </button>
+    </mat-menu>
     <span>Hi <a>user</a></span>
-    <img src="assets/user-avatar.jpg" alt="User Avatar" class="avatar" />
-    <mat-icon style="cursor: pointer;" [routerLink]="['/auth/sign-in']">logout</mat-icon> <!-- Aquí puedes usar cualquier ícono que necesites -->
+    <img
+      src="https://yt3.googleusercontent.com/ytc/AIdro_mlaCQQm9EWnAme2UV11II3wDltUcMRk72jwg_hjjqzgw=s900-c-k-c0x00ffffff-no-rj"
+      alt="User Avatar" class="avatar"
+    />
+    <mat-icon style="cursor: pointer;" [routerLink]="['/auth/sign-in']">logout</mat-icon>
   </div>
 </mat-toolbar>
