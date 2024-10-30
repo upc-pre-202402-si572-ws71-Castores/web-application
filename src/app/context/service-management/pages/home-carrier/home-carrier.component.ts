@@ -9,4 +9,5 @@ import {MatIcon} from "@angular/material/icon";
   standalone: true, // Declaramos como independiente
     imports: [CommonModule, MatIcon] // Importa el formulario
 })
-export class HomeCarrierPageComponent {}
+export class HomeCarrierPageComponent {
+}
