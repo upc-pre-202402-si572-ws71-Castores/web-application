@@ -37,11 +37,23 @@
 .weight-card,
 .temperature-card,
 .notifications-card,
-.alarms-card,
+.alarms-card{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.notifications-card{
+  padding: 20px;
+}
+
 .current-request-card {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background-color: #F8F8FB;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .weight-card h3,
@@ -52,18 +64,19 @@
   font-size: 1.1em;
   font-weight: 600;
   margin-bottom: 10px;
+  color: #002244;
 }
 
 .weight-card .content,
 .temperature-card .content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .value {
   font-size: 2em;
-  font-weight: bold;
+  font-weight: normal;
+  color: #516F91;
 }
 
 .icon {
@@ -114,27 +127,94 @@
 .green {
   background-color: green;
 }
-
-.current-request-card .request-details {
+.request-card{
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
+  padding: 15px;
 }
-
-.request-info,
-.locations,
-.client-info {
+.request-info{
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  width: 100%;
 }
-
-.client-info img {
-  width: 40px;
-  height: 40px;
+.left-current-request{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.left-current-request h3{
+  font-size: 1.5em;
+  text-align: center;
+}
+.right-current-request{
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: space-between;
+  height: 80%;
+}
+.right-current-request img {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   margin-right: 10px;
 }
-
-.client {
+.card-sub-monitoring {
   display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 100px;
+  height: 100px;
+  justify-content: space-evenly;
+  gap: 5px;
   align-items: center;
+  text-align: center;
+}
+.current-request-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.locations{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.locations p {
+  font-size: 13px
+}
+
+.notification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-items: left;
+}
+
+.notification-list li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  color: #516F91;
+}
+
+.timestamp {
+  color: #879CB3;
+  margin: 0;
 }

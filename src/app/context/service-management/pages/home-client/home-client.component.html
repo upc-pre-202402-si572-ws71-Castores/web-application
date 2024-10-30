@@ -21,50 +21,94 @@
         </div>
       </div>
     </div>
-    <div class="card current-request-card">
-      <h3>Current request</h3>
-      <div class="request-details">
-        <div class="request-info">
-          <div>
-            <span class="label">Ideal temperature</span>
-            <span class="value">21°C</span>
+    <div class="current-request-card">
+      <div class="left-current-request">
+        <h3>Current request</h3>
+        <div class="request-card">
+          <div class="request-info">
+            <div class="card-sub-monitoring">
+              <span class="label">Ideal temperature</span>
+              <span class="value">21°C</span>
+            </div>
+            <div class="locations">
+              <mat-icon> location_on</mat-icon>
+              <p>Start Location</p>
+              <strong>Lima</strong>
+            </div>
           </div>
-          <div>
-            <span class="label">Ideal Weight</span>
-            <span class="value">1.7 t</span>
-          </div>
-        </div>
-        <div class="locations">
-          <span>Start Location</span><strong>Lima</strong>
-          <span>Arrival place</span><strong>Lambayeque</strong>
-        </div>
-        <div class="client-info">
-          <span>Client</span>
-          <div class="client">
-            <img src="https://yt3.googleusercontent.com/ytc/AIdro_mlaCQQm9EWnAme2UV11II3wDltUcMRk72jwg_hjjqzgw=s900-c-k-c0x00ffffff-no-rj" alt="Client" />
-            <span>Carlos Benites</span>
+          <div class="request-info">
+            <div class="card-sub-monitoring">
+              <span class="label">Ideal Weight</span>
+              <span class="value">1.7 t</span>
+            </div>
+            <div class="locations">
+              <mat-icon> location_on</mat-icon>
+              <p>Arrival place</p>
+              <strong>Lambayeque</strong>
+            </div>
           </div>
         </div>
       </div>
+      <div class="right-current-request">
+          <span>Client</span>
+          <img src="https://yt3.googleusercontent.com/ytc/AIdro_mlaCQQm9EWnAme2UV11II3wDltUcMRk72jwg_hjjqzgw=s900-c-k-c0x00ffffff-no-rj" alt="Client" />
+          <span>Carlos Benites</span>
+      </div>
     </div>
   </div>
-
   <div class= "left-cards">
     <div class="card notifications-card">
       <h3>Notifications</h3>
-      <ul>
-        <li><span class="dot red"></span>Thermostat regulates temperature <span>5 min ago</span></li>
-        <li><span class="dot green"></span>Delivery confirmation <span>12 min ago</span></li>
-        <li><span class="dot green"></span>Cargo tampering alarm <span>16 min ago</span></li>
+      <ul class="notification-list">
+        <li>
+          <span class="dot red"></span>
+          <div class="notification-content">
+            Thermostat regulates temperature
+            <p class="timestamp">5 min ago</p>
+          </div>
+        </li>
+        <li>
+          <span class="dot green"></span>
+          <div class="notification-content">
+            Delivery confirmation
+            <p class="timestamp">12 min ago</p>
+          </div>
+        </li>
+        <li>
+          <span class="dot green"></span>
+          <div class="notification-content">
+            Cargo tampering alarm
+            <p class="timestamp">16 min ago</p>
+          </div>
+        </li>
       </ul>
     </div>
     <div class="card alarms-card">
       <h3>Alarms</h3>
-      <ul>
-        <li><span class="dot red"></span>Temperature rose by 5° <span>5 min ago</span></li>
-        <li><span class="dot green"></span>Delay alarm <span>12 min ago</span></li>
-        <li><span class="dot green"></span>Cargo tampering alarm <span>16 min ago</span></li>
+      <ul class="notification-list">
+        <li>
+          <span class="dot red"></span>
+          <div class="notification-content">
+            Temperature rose by 5°
+            <p class="timestamp">5 min ago</p>
+          </div>
+        </li>
+        <li>
+          <span class="dot green"></span>
+          <div class="notification-content">
+            Delay alarm
+            <p class="timestamp">12 min ago</p>
+          </div>
+        </li>
+        <li>
+          <span class="dot green"></span>
+          <div class="notification-content">
+            Cargo tampering alarm
+            <p class="timestamp">16 min ago</p>
+          </div>
+        </li>
       </ul>
+
     </div>
   </div>
 
