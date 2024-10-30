@@ -4,7 +4,7 @@ import { HeaderAuthComponent } from '../../components/auth/header/header.compone
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
-  selector: 'app-page',
+  selector: 'auth-page',
   standalone: true,
   imports: [RouterModule, HeaderAuthComponent, HttpClientModule],
   templateUrl: './auth-page.component.html',

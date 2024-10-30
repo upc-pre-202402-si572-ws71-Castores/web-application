@@ -1,4 +1,10 @@
-<p>app-page works!</p>
-<div>
-  <router-outlet></router-outlet>
+<div class="app-page">
+  <app-header-app></app-header-app>
+
+  <div class="sidebar-content">
+    <app-sidebar-app></app-sidebar-app>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
