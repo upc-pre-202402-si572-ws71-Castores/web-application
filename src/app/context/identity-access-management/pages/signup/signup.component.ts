@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoginFormComponent } from '../../components/signup-form/signup-form.component';
+import {SignUpFormComponent} from "../../components/sign-up-form/sign-up-form.component";
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,6 +7,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
   standalone: true, // Declaramos como independiente
-  imports: [CommonModule, LoginFormComponent] // Importa el formulario
+  imports: [CommonModule, SignUpFormComponent] // Importa el formulario
 })
 export class SignupPageComponent {}

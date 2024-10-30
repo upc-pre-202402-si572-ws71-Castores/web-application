@@ -1,26 +1,60 @@
 import { Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
 
 export const routes: Routes = [
-    {
-        path: '',
-        redirectTo: 'sign-in',
-        pathMatch: 'full',
+  {
+    path: '',
+    redirectTo: 'auth/sign-in',
+    pathMatch: 'full',
+  },
+  {
+    path: 'auth',
+    loadComponent: () =>
+      import('./shared/pages/auth-page/auth-page.component').then(
+        (m) => m.AuthPageComponent
+      ),
+    providers: [HttpClientModule],  // Aquí se agrega HttpClientModule
+    children: [
+      {
+        path: 'sign-in',
+        loadComponent: () =>
+          import('./context/identity-access-management/pages/login/login.component').then(
+            (m) => m.LoginPageComponent
+          ),
       },
       {
-        path: '',
+        path: 'sign-up',
         loadComponent: () =>
-          import('./shared/pages/auth-page/auth-page.component').then(
-            (m) => m.AuthPageComponent,
+          import('./context/identity-access-management/pages/signup/signup.component').then(
+            (m) => m.SignupPageComponent
           ),
-          children: [
-            {
-                path: 'sign-in',
-                loadComponent: () =>
-                  import('./context/identity-access-management/pages/login/login.component').then(
-                    (m) => m.LoginPageComponent,
-                  ),
-            },
-        ],
       },
-
+      {
+        path: 'forgot-password',
+        loadComponent: () =>
+          import('./context/identity-access-management/pages/forgot-password/forgot-password.component').then(
+            (m) => m.ForgotPasswordPageComponent
+          ),
+      },
+      {
+        path: 'new-password',
+        loadComponent: () =>
+          import('./context/identity-access-management/pages/new-password/new-password.component').then(
+            (m) => m.NewPasswordComponent
+          ),
+      },
+      {
+        path: 'new-account',
+        loadComponent: () =>
+          import('./context/identity-access-management/pages/new-account/new-account.component').then(
+            (m) => m.NewAccountComponent
+          ),
+      },
+    ],
+  },
+  {
+    path: '**',
+    redirectTo: 'auth/sign-in',
+  },
 ];
