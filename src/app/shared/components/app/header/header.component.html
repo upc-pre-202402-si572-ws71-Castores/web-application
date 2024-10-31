@@ -11,14 +11,14 @@
       <mat-icon>expand_more</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <span class="text-menu">Languages</span>
-      <button mat-menu-item>
+      <span class="text-menu">{{ 'read-more' | translate }}</span>
+      <button mat-menu-item (click)="useLanguage('es')">
         <img src="https://cdn-icons-png.flaticon.com/256/555/555635.png"
-             alt="esp" class="flag-icon"/>
+             alt="es" class="flag-icon"/>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="useLanguage('en')">
         <img src="https://images.emojiterra.com/twitter/512px/1f1ec-1f1e7.png"
-             alt="esp" class="flag-icon"/>
+             alt="en" class="flag-icon"/>
       </button>
     </mat-menu>
     <span>Hi <a>user</a></span>

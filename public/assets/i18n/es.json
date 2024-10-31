@@ -1,0 +1,7 @@
+{
+  "read-more": "Leer más",
+  "header": {
+    "hello": "Hola {{user}}",
+    "languages": "Lenguajes"
+  }
+}
