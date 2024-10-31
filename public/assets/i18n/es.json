@@ -31,5 +31,16 @@
     "time2": "minutos",
     "notifications": "Notificaciones",
     "alarms": "Alarmas"
+  },
+  "history":{
+    "historyoffers": "Historial de Ofertas",
+    "idealtemperature": "Temperatura Ideal",
+    "idealweight": "Peso ideal",
+    "startlocation": "Ubicación de inicio",
+    "arrivalplace": "Lugar de llegada",
+    "startdate": "Fecha de inicio",
+    "arrivaldate": "Fecha de llegada",
+    "client": "Cliente",
+    "carrier": "Transportista"
   }
 }

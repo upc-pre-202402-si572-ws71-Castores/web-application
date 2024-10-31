@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-profile-client-page',
   templateUrl: './profile-client.component.html',
   styleUrls: ['./profile-client.component.css'],
-  standalone: true, // Declaramos como independiente
-  imports: [CommonModule] // Importa el formulario
+  standalone: true,
+  imports: [CommonModule]
 })
 export class ProfileClientPageComponent {}

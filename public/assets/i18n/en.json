@@ -31,5 +31,16 @@
     "time2": "min ago",
     "notifications": "Notifications",
     "alarms": "Alarms"
+  },
+  "history":{
+      "historyoffers": "History Offers",
+      "idealtemperature": "Ideal Temperature",
+      "idealweight": "Ideal Weight",
+      "startlocation": "Start Location",
+      "arrivalplace": "Arrival Place",
+      "startdate": "Start Date",
+      "arrivaldate": "Arrival Date",
+      "client": "Client",
+      "carrier": "Carrier"
   }
 }
