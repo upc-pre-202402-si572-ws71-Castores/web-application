@@ -1,7 +1,15 @@
 {
   "read-more": "Leer más",
   "header": {
-    "hello": "Hola {{user}}",
+    "hello": "Hola",
+    "user": "Usuario",
     "languages": "Lenguajes"
+  },
+  "sidebar": {
+    "dashboard": "Panel Principal",
+    "seeoffers": "Ver Ofertas",
+    "createrequest": "Nueva Solicitud",
+    "history": "Historial",
+    "request": "Solicutud"
   }
 }

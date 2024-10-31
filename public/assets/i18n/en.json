@@ -1,7 +1,15 @@
 {
   "read-more": "read more",
   "header": {
-    "hello": "Hi {{user}}",
+    "hello": "Hi",
+    "user": "user",
     "languages": "Languages"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "seeoffers": "See offers",
+    "createrequest": "Create Request",
+    "history": "History",
+    "request": "Request"
   }
 }
