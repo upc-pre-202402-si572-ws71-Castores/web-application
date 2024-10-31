@@ -42,5 +42,16 @@
     "arrivaldate": "Fecha de llegada",
     "client": "Cliente",
     "carrier": "Transportista"
+  },
+  "create-request": {
+    "create-request": "Crear Solicitud",
+    "typeofvehicle": "Tipo de Vehículo",
+    "startlocation": "Ubicación de inicio",
+    "arrivalplace": "Lugar de llegada",
+    "idealtemperature": "Temperatura ideal",
+    "idealweight": "Peso ideal",
+    "offeredprice": "Precio ofrecido",
+    "Descriptionoftherequest": "Descripción de la solicitud",
+    "confirm": "Confirmar"
   }
 }

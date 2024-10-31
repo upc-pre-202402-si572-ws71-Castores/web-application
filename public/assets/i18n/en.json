@@ -42,5 +42,16 @@
       "arrivaldate": "Arrival Date",
       "client": "Client",
       "carrier": "Carrier"
+  },
+  "create-request": {
+    "create-request": "Create Request",
+    "typeofvehicle": "Type of Vehicle",
+    "startlocation": "Start Location",
+    "arrivalplace": "Arrival Place",
+    "idealtemperature": "Ideal Temperature",
+    "idealweight": "Ideal Weight",
+    "offeredprice": "Offered Price",
+    "Descriptionoftherequest": "Description of the request",
+    "confirm": "Confirm"
   }
 }
