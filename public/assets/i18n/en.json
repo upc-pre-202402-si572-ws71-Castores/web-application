@@ -11,5 +11,25 @@
     "createrequest": "Create Request",
     "history": "History",
     "request": "Request"
+  },
+  "404": {
+    "pagenofound": "Page no found",
+    "gohome": "Return to home"
+  },
+  "home": {
+    "weight": "Weight",
+    "temperature": "Temperature",
+    "autosystem": "Auto Room Temperature System",
+    "currentrequest": "Current Request",
+    "idealtemperature": "Ideal Temperature",
+    "idealweight": "Ideal Weight",
+    "startlocation": "Start Location",
+    "arrivalplace": "Arrival Place",
+    "client": "Client",
+    "carrier": "Carrier",
+    "time1": "",
+    "time2": "min ago",
+    "notifications": "Notifications",
+    "alarms": "Alarms"
   }
 }

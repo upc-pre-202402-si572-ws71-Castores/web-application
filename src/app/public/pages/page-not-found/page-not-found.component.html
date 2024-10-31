@@ -2,11 +2,11 @@
   <div class="central-view">
     <h1>404</h1>
     <mat-icon>warning</mat-icon>
-    <p>page not found</p>
+    <p>{{ '404.pagenofound' | translate }}</p>
     <div class="example-button-container">
       <button mat-fab extended>
-        <mat-icon [routerLink]="['/app']" >home</mat-icon>
-        Go home
+        <mat-icon [routerLink]="['/app/client']" >home</mat-icon>
+        {{ '404.gohome' | translate }}
       </button>
     </div>
   </div>
