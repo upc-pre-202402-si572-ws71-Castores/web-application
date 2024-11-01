@@ -40,7 +40,19 @@
         </mat-error>
       </mat-form-field>
 
-      <button mat-raised-button color="primary" class="full-width" type="submit" (click)="goToNewAccount()" [disabled]="signUpForm.invalid">
+      <!-- New Role Selection Field -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Role</mat-label>
+        <mat-select [formControlName]="'role'">
+          <mat-option value="ROLE_CLIENT">Client</mat-option>
+          <mat-option value="ROLE_TRANSPORTER">Transporter</mat-option>
+        </mat-select>
+        <mat-error *ngIf="signUpForm.controls['role'].invalid && signUpForm.controls['role'].touched">
+          Please select a role.
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width" type="submit" [disabled]="signUpForm.invalid">
         Sign Up
       </button>
     </form>

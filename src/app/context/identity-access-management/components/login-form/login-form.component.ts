@@ -43,7 +43,7 @@ import { TransportappService} from "../../../../services/transportapp.service";
         response => {
           // Manejo de autenticación exitosa (almacena el token si se incluye en la respuesta)
           localStorage.setItem('token', response.token);  // Ajusta según la estructura de tu respuesta
-          this.router.navigate(['/dashboard']); // Redirige al usuario a la página principal
+          this.router.navigate(['/auth/Dashboard']); // Redirige al usuario a la página principal
         },
         error => {
           console.error('Error de autenticación:', error);
