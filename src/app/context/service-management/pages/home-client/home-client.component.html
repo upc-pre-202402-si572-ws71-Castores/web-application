@@ -1,3 +1,115 @@
-<div class="home-client">
-    home
+<div class="dashboard-container">
+
+  <div class= "right-cards">
+    <div class= "right-cards-bottom">
+      <div class="card weight-card">
+        <h3>Weight</h3>
+        <div class="content">
+          <span class="value">1.7 t</span>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7TBc1TcdvLKm1FNIM2ySRr9hGKTuK0RQljYoQuv6f412KLbPB">
+        </div>
+      </div>
+      <div class="card temperature-card">
+        <h3>{{ 'home.temperature' | translate }}</h3>
+        <div class="content">
+          <span class="value">22°C</span>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRycHfhTeqON5T8r8IPKqoYCncsZpgNHhC_UG96SxD8bR5RdMNZ">
+        </div>
+        <div class="toggle">
+          <label>{{ 'home.autosystem' | translate }}</label>
+          <input type="checkbox" checked />
+        </div>
+      </div>
+    </div>
+    <div class="current-request-card">
+      <div class="left-current-request">
+        <h3>{{ 'home.currentrequest' | translate }}</h3>
+        <div class="request-card">
+          <div class="request-info">
+            <div class="card-sub-monitoring">
+              <span class="label">{{ 'home.idealtemperature' | translate }}</span>
+              <span class="value">21°C</span>
+            </div>
+            <div class="locations">
+              <mat-icon> location_on</mat-icon>
+              <p>{{ 'home.startlocation' | translate }}</p>
+              <strong>Lima</strong>
+            </div>
+          </div>
+          <div class="request-info">
+            <div class="card-sub-monitoring">
+              <span class="label">{{ 'home.idealweight' | translate }}</span>
+              <span class="value">1.7 t</span>
+            </div>
+            <div class="locations">
+              <mat-icon> location_on</mat-icon>
+              <p>{{ 'home.arrivalplace' | translate }}</p>
+              <strong>Lambayeque</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-current-request">
+          <span>{{ 'home.client' | translate }}</span>
+          <img src="https://yt3.googleusercontent.com/ytc/AIdro_mlaCQQm9EWnAme2UV11II3wDltUcMRk72jwg_hjjqzgw=s900-c-k-c0x00ffffff-no-rj" alt="Client" />
+          <span>Carlos Benites</span>
+      </div>
+    </div>
+  </div>
+  <div class= "left-cards">
+    <div class="card notifications-card">
+      <h3>{{ 'home.notifications' | translate }}</h3>
+      <ul class="notification-list">
+        <li>
+          <span class="dot red"></span>
+          <div class="notification-content">
+            Thermostat regulates temperature
+            <p class="timestamp">{{ 'home.time1' | translate }} 5 {{'home.time2' | translate }}</p>
+          </div>
+        </li>
+        <li>
+          <span class="dot green"></span>
+          <div class="notification-content">
+            Delivery confirmation
+            <p class="timestamp">{{ 'home.time1' | translate }} 12 {{'home.time2' | translate }}</p>
+          </div>
+        </li>
+        <li>
+          <span class="dot green"></span>
+          <div class="notification-content">
+            Cargo tampering alarm
+            <p class="timestamp">{{ 'home.time1' | translate }} 16 {{'home.time2' | translate }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="card alarms-card">
+      <h3>{{ 'home.alarms' | translate }}</h3>
+      <ul class="notification-list">
+        <li>
+          <span class="dot red"></span>
+          <div class="notification-content">
+            Temperature rose by 5°
+            <p class="timestamp">{{ 'home.time1' | translate }} 5 {{'home.time2' | translate }}</p>
+          </div>
+        </li>
+        <li>
+          <span class="dot green"></span>
+          <div class="notification-content">
+            Delay alarm
+            <p class="timestamp">{{ 'home.time1' | translate }} 12 {{'home.time2' | translate }}</p>
+          </div>
+        </li>
+        <li>
+          <span class="dot green"></span>
+          <div class="notification-content">
+            Cargo tampering alarm
+            <p class="timestamp">{{ 'home.time1' | translate }} 16 {{'home.time2' | translate }}</p>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
 </div>

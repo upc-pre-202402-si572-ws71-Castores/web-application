@@ -28,7 +28,6 @@
         <mat-checkbox [formControlName]="'rememberMe'">Remember me</mat-checkbox>
         <a [routerLink]="['/auth/forgot-password']" class="forgot-password" href="#">Forgot Password</a>
       </div>
-
       <button mat-raised-button color="primary" class="full-width" type="submit" (click)="goToDashboard()" [disabled]="loginForm.invalid">
         Login
       </button>

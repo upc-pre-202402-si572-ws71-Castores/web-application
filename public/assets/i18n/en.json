@@ -1,0 +1,57 @@
+{
+  "read-more": "read more",
+  "header": {
+    "hello": "Hi",
+    "user": "user",
+    "languages": "Languages"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "seeoffers": "See offers",
+    "createrequest": "Create Request",
+    "history": "History",
+    "request": "Request"
+  },
+  "404": {
+    "pagenofound": "Page no found",
+    "gohome": "Return to home"
+  },
+  "home": {
+    "weight": "Weight",
+    "temperature": "Temperature",
+    "autosystem": "Auto Room Temperature System",
+    "currentrequest": "Current Request",
+    "idealtemperature": "Ideal Temperature",
+    "idealweight": "Ideal Weight",
+    "startlocation": "Start Location",
+    "arrivalplace": "Arrival Place",
+    "client": "Client",
+    "carrier": "Carrier",
+    "time1": "",
+    "time2": "min ago",
+    "notifications": "Notifications",
+    "alarms": "Alarms"
+  },
+  "history":{
+      "historyoffers": "History Offers",
+      "idealtemperature": "Ideal Temperature",
+      "idealweight": "Ideal Weight",
+      "startlocation": "Start Location",
+      "arrivalplace": "Arrival Place",
+      "startdate": "Start Date",
+      "arrivaldate": "Arrival Date",
+      "client": "Client",
+      "carrier": "Carrier"
+  },
+  "create-request": {
+    "create-request": "Create Request",
+    "typeofvehicle": "Type of Vehicle",
+    "startlocation": "Start Location",
+    "arrivalplace": "Arrival Place",
+    "idealtemperature": "Ideal Temperature",
+    "idealweight": "Ideal Weight",
+    "offeredprice": "Offered Price",
+    "Descriptionoftherequest": "Description of the request",
+    "confirm": "Confirm"
+  }
+}
