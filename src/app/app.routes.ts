@@ -1,103 +1,41 @@
 import { Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
 
 export const routes: Routes = [
-    {
-        path: '',
-        redirectTo: 'auth/sign-in',
-        pathMatch: 'full',
+  {
+    path: '',
+    redirectTo: 'auth/sign-in',
+    pathMatch: 'full',
+  },
+  {
+    path: 'auth',
+    loadComponent: () =>
+      import('./shared/pages/auth-page/auth-page.component').then(
+        (m) => m.AuthPageComponent
+      ),
+    providers: [HttpClientModule],  // Aquí se agrega HttpClientModule
+    children: [
+      {
+        path: 'sign-in',
+        loadComponent: () =>
+          import('./context/identity-access-management/pages/login/login.component').then(
+            (m) => m.LoginPageComponent
+          ),
       },
       {
-        path: 'auth',
+        path: 'sign-up',
         loadComponent: () =>
-          import('./shared/pages/auth-page/auth-page.component').then(
-            (m) => m.AuthPageComponent,
+          import('./context/identity-access-management/pages/signup/signup.component').then(
+            (m) => m.SignupPageComponent
           ),
-          children: [
-            {
-                path: 'sign-in',
-                loadComponent: () =>
-                  import('./context/identity-access-management/pages/login/login.component').then(
-                    (m) => m.LoginPageComponent,
-                  ),
-            },
-        ],
       },
       {
-        path: 'app',
+        path: 'forgot-password',
         loadComponent: () =>
-          import('./shared/pages/app-page/app-page.component').then(
-            (m) => m.AppPageComponent,
+          import('./context/identity-access-management/pages/forgot-password/forgot-password.component').then(
+            (m) => m.ForgotPasswordPageComponent
           ),
-        children: [
-          // Rutas para Carrier
-          {
-            path: 'carrier',
-            children: [
-              {
-                path: '',
-                loadComponent: () =>
-                  import('./context/service-management/pages/home-carrier/home-carrier.component').then(
-                    (m) => m.HomeCarrierPageComponent,
-                  ),
-              },
-              {
-                path: 'profile',
-                loadComponent: () =>
-                  import('./context/identity-access-management/pages/profile-carrier/profile-carrier.component').then(
-                    (m) => m.ProfileCarrierPageComponent,
-                  ),
-              },
-              {
-                path: 'history',
-                loadComponent: () =>
-                  import('./context/service-management/pages/history-carrier/history-carrier.component').then(
-                    (m) => m.HistoryCarrierPageComponent,
-                  ),
-              },
-              {
-                path: 'see-offers',
-                loadComponent: () =>
-                  import('./context/service-management/pages/see-offers/see-offers.component').then(
-                    (m) => m.SeeOffersPageComponent,
-                  ),
-              },
-            ],
-          },
-          // Rutas para Cliente
-          {
-            path: 'client',
-            children: [
-              {
-                path: '',
-                loadComponent: () =>
-                  import('./context/service-management/pages/home-client/home-client.component').then(
-                    (m) => m.HomeClientPageComponent,
-                  ),
-              },
-              {
-                path: 'profile',
-                loadComponent: () =>
-                  import('./context/identity-access-management/pages/profile-client/profile-client.component').then(
-                    (m) => m.ProfileClientPageComponent,
-                  ),
-              },
-              {
-                path: 'history',
-                loadComponent: () =>
-                  import('./context/service-management/pages/history-client/history-client.component').then(
-                    (m) => m.HistoryClientPageComponent,
-                  ),
-              },
-              {
-                path: 'create-request',
-                loadComponent: () =>
-                  import('./context/service-management/pages/create-request/create-request.component').then(
-                    (m) => m.CreateRequestPageComponent,
-                  ),
-              },
-            ],
-          },
-        ],
       },
       // page not found 404
       {
@@ -107,4 +45,25 @@ export const routes: Routes = [
             (m) => m.PageNotFoundComponent,
           ),
       },
+      {
+        path: 'new-password',
+        loadComponent: () =>
+          import('./context/identity-access-management/pages/new-password/new-password.component').then(
+            (m) => m.NewPasswordComponent
+          ),
+      },
+      {
+        path: 'new-account',
+        loadComponent: () =>
+          import('./context/identity-access-management/pages/new-account/new-account.component').then(
+            (m) => m.NewAccountComponent
+          ),
+      },
+    ],
+  },
+  {
+    path: '**',
+    redirectTo: 'auth/sign-in',
+  },
+
 ];

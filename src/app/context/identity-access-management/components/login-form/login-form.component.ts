@@ -6,23 +6,21 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
-import { Router } from '@angular/router';
-/*import { AuthService } from '../../services/auth.service';*/
-import { HttpClientModule } from '@angular/common/http';  // Asegúrate de importar HttpClientModule
-
+import {Router, RouterLink} from "@angular/router";
+import { TransportappService} from "../../../../services/transportapp.service";
 
 @Component({
     selector: 'app-login-form',
     standalone: true, // Indicamos que este componente es independiente
-    imports: [
-      CommonModule, 
-      ReactiveFormsModule,
-      MatInputModule,
-      MatButtonModule,
-      HttpClientModule,
-      MatCheckboxModule,
-      MatIconModule,
-    ],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatIconModule,
+    RouterLink,
+  ],
     templateUrl: './login-form.component.html',
     styleUrls: ['./login-form.component.css'],
   })
@@ -30,56 +28,36 @@ import { HttpClientModule } from '@angular/common/http';  // Asegúrate de impor
   export class LoginFormComponent {
     loginForm: FormGroup;
     hidePassword = true; // Para mostrar/ocultar contraseña
-  
-    constructor(private fb: FormBuilder) {
-      this.loginForm = this.fb.group({
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(6)]],
-        rememberMe: [false]
-      });
+
+  constructor(private fb: FormBuilder, private router: Router, private transportAppService: TransportappService) {
+    this.loginForm = this.fb.group({
+      username: ['', [Validators.required, Validators.email]],  // Cambiado a 'username'
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      rememberMe: [false]
+    });
+  }
+
+  onSubmit() {
+    if (this.loginForm.valid) {
+      this.transportAppService.signIn(this.loginForm.value).subscribe(
+        response => {
+          // Manejo de autenticación exitosa (almacena el token si se incluye en la respuesta)
+          localStorage.setItem('token', response.token);  // Ajusta según la estructura de tu respuesta
+          this.router.navigate(['/auth/Dashboard']); // Redirige al usuario a la página principal
+        },
+        error => {
+          console.error('Error de autenticación:', error);
+          alert('Credenciales incorrectas');
+        }
+      );
     }
-  
-    onSubmit() {
-      if (this.loginForm.valid) {
-        console.log('Form Submitted', this.loginForm.value);
-        // Aquí puedes manejar la autenticación
-      }
-    }
-  
+  }
+
     togglePasswordVisibility() {
       this.hidePassword = !this.hidePassword;
     }
+  goToDashboard() {
+    this.router.navigate(['/auth/dashboard']); // Cambia '/login' por la ruta que usas para el login
+  }
 
-    /*loginForm: FormGroup;
-    hidePassword = true; // Para mostrar/ocultar contraseña
-    loginError = false;
-
-    constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
-      this.loginForm = this.fb.group({
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(6)]],
-        rememberMe: [false]
-      });
-    }
-  
-    onSubmit() {
-      if (this.loginForm.valid) {
-        const { username, password } = this.loginForm.value;
-        
-        // Aquí especificamos explícitamente el tipo de 'success' como boolean
-        this.authService.login(username, password).subscribe((success: boolean) => {
-          if (success) {
-            // Redirige al usuario a 'app/create-request' si el login es exitoso
-            this.router.navigate(['/app/create-request']);
-          } else {
-            // Muestra el mensaje de error si el login falla
-            this.loginError = true;
-          }
-        });
-      }
-    }
-  
-    togglePasswordVisibility() {
-      this.hidePassword = !this.hidePassword;
-    }*/
   }

@@ -53,15 +53,6 @@ button.full-width {
   font-weight: bold;
 }
 
-.signup {
-  margin-top: 15px;
-}
-
-.signup a {
-  color: #00a651;
-  text-decoration: none;
-}
-
 .error-message {
   color: red;
   font-size: 12px;
