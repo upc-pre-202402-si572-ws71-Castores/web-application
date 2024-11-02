@@ -41,21 +41,23 @@ export class SignUpFormComponent {
   }
 
   onSubmit() {
-    const signUpData = {
-      username: this.signUpForm.value.email, // Usa el email como username
-      password: this.signUpForm.value.password,
-      roles: [this.signUpForm.value.role] // Asigna el rol seleccionado
-    };
+    if (this.signUpForm.valid) {
+      const signUpData = {
+        username: this.signUpForm.value.email, // Usa el email como username
+        password: this.signUpForm.value.password,
+        roles: [this.signUpForm.value.role] // Asigna el rol seleccionado
+      };
 
-    this.transportAppService.signUp(signUpData).subscribe(
-      response => {
-        console.log("Registro exitoso:", response);
-        this.router.navigate(['/auth/new-account']);
-      },
-      error => {
-        console.error("Error en el registro:", error);
-      }
-    );
+      this.transportAppService.signUp(signUpData).subscribe(
+        response => {
+          console.log("Registro exitoso:", response);
+          this.router.navigate(['/auth/new-account']);
+        },
+        error => {
+          console.error("Error en el registro:", error);
+        }
+      );
+    }
   }
 
   togglePasswordVisibility() {
