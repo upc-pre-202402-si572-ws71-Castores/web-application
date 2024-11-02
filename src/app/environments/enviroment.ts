@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://jsonplaceholder.typicode.com/users'  // Fake API URL
+  apiUrl: 'http://localhost:8080/api/v1'  // Fake API URL
 };

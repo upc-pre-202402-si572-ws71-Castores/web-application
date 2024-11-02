@@ -21,11 +21,11 @@
              alt="en" class="flag-icon"/>
       </button>
     </mat-menu>
-    <span>{{ 'header.hello' | translate }} <a> {{ 'header.user' | translate }}</a></span>
+    <span>{{ 'header.hello' | translate }} <a> {{ userName }}</a></span>
     <img
       src="https://yt3.googleusercontent.com/ytc/AIdro_mlaCQQm9EWnAme2UV11II3wDltUcMRk72jwg_hjjqzgw=s900-c-k-c0x00ffffff-no-rj"
       alt="User Avatar" class="avatar"
     />
-    <mat-icon style="cursor: pointer;" [routerLink]="['/auth/sign-in']">logout</mat-icon>
+    <mat-icon style="cursor: pointer;" (click)="logout()">logout</mat-icon>
   </div>
 </mat-toolbar>

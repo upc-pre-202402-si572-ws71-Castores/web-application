@@ -28,6 +28,9 @@ import { TransportappService} from "../../../../services/transportapp.service";
   export class LoginFormComponent {
     loginForm: FormGroup;
     hidePassword = true; // Para mostrar/ocultar contraseña
+    errorMessage: string | null = null; // Para almacenar mensajes de error
+
+
 
   constructor(private fb: FormBuilder, private router: Router, private transportAppService: TransportappService) {
     this.loginForm = this.fb.group({
@@ -41,23 +44,49 @@ import { TransportappService} from "../../../../services/transportapp.service";
     if (this.loginForm.valid) {
       this.transportAppService.signIn(this.loginForm.value).subscribe(
         response => {
-          // Manejo de autenticación exitosa (almacena el token si se incluye en la respuesta)
-          localStorage.setItem('token', response.token);  // Ajusta según la estructura de tu respuesta
-          this.router.navigate(['/auth/Dashboard']); // Redirige al usuario a la página principal
+          const { token, id } = response;
+          localStorage.setItem('token', token);
+          localStorage.setItem('userId', id.toString());
+  
+          this.transportAppService.getUserRole(id).subscribe(
+            user => {
+              if (user.roles && user.roles.length > 0) {
+                const role = user.roles[0];
+                if (role === 'ROLE_CLIENT') {
+                  this.router.navigate(['/app/client']);
+                } else if (role === 'ROLE_TRANSPORTER') {
+                  this.router.navigate(['/app/carrier']);
+                } else {
+                  alert('Rol no reconocido. Contacta con soporte.');
+                }
+              } else {
+                console.error('No se encontró el rol del usuario.');
+                this.errorMessage = 'Error: no se encontró el rol del usuario.';
+              }
+            },
+            error => {
+              console.error('Error obteniendo el rol del usuario:', error);
+              this.errorMessage = 'Error al obtener los datos del usuario.';
+            }
+          );
         },
         error => {
+          if (error.status === 401) {
+            this.errorMessage = 'Credenciales incorrectas. Por favor, inténtalo nuevamente.';
+          } else {
+            this.errorMessage = 'Ocurrió un error en la autenticación. Inténtalo más tarde.';
+          }
           console.error('Error de autenticación:', error);
-          alert('Credenciales incorrectas');
         }
       );
     }
   }
 
-    togglePasswordVisibility() {
+
+  togglePasswordVisibility() {
       this.hidePassword = !this.hidePassword;
-    }
-  goToDashboard() {
-    this.router.navigate(['/auth/dashboard']); // Cambia '/login' por la ruta que usas para el login
   }
+
+
 
   }
