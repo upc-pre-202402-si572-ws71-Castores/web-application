@@ -1,0 +1,49 @@
+.request-card {
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0px 10px 17px rgba(0, 0, 0, 0.3);
+  max-width: 700px;
+  align-items: center;
+}
+
+h2 {
+  font-size: 35px;
+  font-weight: 600;
+  color: #002855;
+  margin-bottom: 40px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.description-field {
+  grid-column: span 2;
+}
+
+.confirm-button {
+  background-color: #00A86B;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 15px;
+  width: 70%;
+  margin-top: 20px;
+}
+
+.confirm-buttons {
+  display: flex;
+  justify-content: center;
+}
+.confirm-button:hover {
+  background-color: #007d52;
+}
+.confirm-button:active {
+  background-color: #01b274;
+}

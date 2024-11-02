@@ -1,0 +1,31 @@
+<mat-toolbar color="#F8F8FB" class="header-toolbar">
+  <!-- Parte izquierda del header -->
+  <img src="assets/transportapp-logo.png" alt="Logo" class="logo" [routerLink]="homeRoute" style="cursor: pointer;"/>
+  <span class="title">TransportApp</span>
+
+  <!-- Parte derecha del header -->
+  <span class="spacer"></span> <!-- Este span actúa como separador flexible -->
+
+  <div class="user-info">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>expand_more</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <span class="text-menu">{{ 'header.languages' | translate }}</span>
+      <button mat-menu-item (click)="useLanguage('es')">
+        <img src="https://cdn-icons-png.flaticon.com/256/555/555635.png"
+             alt="es" class="flag-icon"/>
+      </button>
+      <button mat-menu-item (click)="useLanguage('en')">
+        <img src="https://images.emojiterra.com/twitter/512px/1f1ec-1f1e7.png"
+             alt="en" class="flag-icon"/>
+      </button>
+    </mat-menu>
+    <span>{{ 'header.hello' | translate }} <a> {{ userName }}</a></span>
+    <img
+      src="https://yt3.googleusercontent.com/ytc/AIdro_mlaCQQm9EWnAme2UV11II3wDltUcMRk72jwg_hjjqzgw=s900-c-k-c0x00ffffff-no-rj"
+      alt="User Avatar" class="avatar"
+    />
+    <mat-icon style="cursor: pointer;" (click)="logout()">logout</mat-icon>
+  </div>
+</mat-toolbar>

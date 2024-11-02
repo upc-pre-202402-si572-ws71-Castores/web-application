@@ -1,0 +1,57 @@
+{
+  "read-more": "Leer más",
+  "header": {
+    "hello": "Hola",
+    "user": "Usuario",
+    "languages": "Lenguajes"
+  },
+  "sidebar": {
+    "dashboard": "Panel Principal",
+    "seeoffers": "Ver Ofertas",
+    "createrequest": "Nueva Solicitud",
+    "history": "Historial",
+    "request": "Solicitud"
+  },
+  "404": {
+    "pagenofound": "Pagina no encontrada",
+    "gohome": "Volver atrás"
+  },
+  "home": {
+    "weight": "Peso",
+    "temperature": "Temperatura",
+    "autosystem": "Sistema automático de temperatura ambiente",
+    "currentrequest": "Solicitud actual",
+    "idealtemperature": "Temperatura ideal",
+    "idealweight": "Peso ideal",
+    "startlocation": "Ubicación de inicio",
+    "arrivalplace": "Lugar de llegada",
+    "client": "Cliente",
+    "carrier": "Transportista",
+    "time1": "hace",
+    "time2": "minutos",
+    "notifications": "Notificaciones",
+    "alarms": "Alarmas"
+  },
+  "history":{
+    "historyoffers": "Historial de Ofertas",
+    "idealtemperature": "Temperatura Ideal",
+    "idealweight": "Peso ideal",
+    "startlocation": "Ubicación de inicio",
+    "arrivalplace": "Lugar de llegada",
+    "startdate": "Fecha de inicio",
+    "arrivaldate": "Fecha de llegada",
+    "client": "Cliente",
+    "carrier": "Transportista"
+  },
+  "create-request": {
+    "create-request": "Crear Solicitud",
+    "typeofvehicle": "Tipo de Vehículo",
+    "startlocation": "Ubicación de inicio",
+    "arrivalplace": "Lugar de llegada",
+    "idealtemperature": "Temperatura ideal",
+    "idealweight": "Peso ideal",
+    "offeredprice": "Precio ofrecido",
+    "Descriptionoftherequest": "Descripción de la solicitud",
+    "confirm": "Confirmar"
+  }
+}

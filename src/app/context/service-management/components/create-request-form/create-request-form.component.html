@@ -1,0 +1,61 @@
+<div>
+  <mat-card class="request-card">
+    <h2>{{ 'create-request.create-request' | translate }}</h2>
+
+    <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+      <div class="form-grid">
+        <!-- Type of Vehicle -->
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>{{ 'create-request.typeofvehicle' | translate }}</mat-label>
+          <mat-select formControlName="vehicleType" >
+            <mat-option value="heavy">Heavy duty truck</mat-option>
+            <mat-option value="light">Light truck</mat-option>
+            <!-- Agregar más opciones según sea necesario -->
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Start Location -->
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>{{ 'create-request.startlocation' | translate }}</mat-label>
+          <input matInput formControlName="startLocation" placeholder="Lima">
+        </mat-form-field>
+
+        <!-- Ideal Temperature -->
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>{{ 'create-request.startlocation' | translate }}</mat-label>
+          <input matInput formControlName="temperature" type="number" placeholder="25">
+        </mat-form-field>
+
+        <!-- Arrival Place -->
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>{{ 'create-request.arrivalplace' | translate }}</mat-label>
+          <input matInput formControlName="arrivalPlace" placeholder="Arequipa">
+        </mat-form-field>
+
+        <!-- Ideal Weight -->
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>{{ 'create-request.idealweight' | translate }}</mat-label>
+          <input matInput formControlName="weight" type="number" placeholder="1.7 t">
+        </mat-form-field>
+
+        <!-- Offered Price -->
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>{{ 'create-request.offeredprice' | translate }}</mat-label>
+          <input matInput formControlName="price" placeholder="300 soles">
+        </mat-form-field>
+
+        <!-- Description -->
+        <mat-form-field class="full-width description-field" appearance="outline">
+          <mat-label>{{ 'create-request.Descriptionoftherequest' | translate }}</mat-label>
+          <textarea matInput formControlName="description" rows="2"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="confirm-buttons">
+        <!-- Confirm Button -->
+        <button class="confirm-button">
+          {{ 'create-request.confirm | translate }}
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

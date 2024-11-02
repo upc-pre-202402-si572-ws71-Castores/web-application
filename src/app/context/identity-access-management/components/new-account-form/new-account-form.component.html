@@ -1,0 +1,79 @@
+<div class="login-container">
+  <h2>Create New Account</h2>
+
+  <div class="login-box">
+    <form [formGroup]="newAccountForm" (ngSubmit)="onSubmit()">
+
+      <!-- Fila 1: Full Name y Province -->
+      <div class="two-columns">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Full Name</mat-label>
+          <input matInput [formControlName]="'fullName'" placeholder="John Doe">
+          <mat-error *ngIf="newAccountForm.controls['fullName'].invalid && newAccountForm.controls['fullName'].touched">
+            Full Name is required.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Province</mat-label>
+          <input matInput [formControlName]="'province'" placeholder="Lima">
+          <mat-error *ngIf="newAccountForm.controls['province'].invalid && newAccountForm.controls['province'].touched">
+            Province is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Fila 2: Date of Birth y Phone Name -->
+      <div class="two-columns">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [formControlName]="'dateOfBirth'" placeholder="dd/mm/yyyy">
+          <mat-error *ngIf="newAccountForm.controls['dateOfBirth'].invalid && newAccountForm.controls['dateOfBirth'].touched">
+            Date of Birth is required.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Phone Name</mat-label>
+          <input matInput [formControlName]="'phoneName'" placeholder="+51 999999999">
+          <mat-error *ngIf="newAccountForm.controls['phoneName'].invalid && newAccountForm.controls['phoneName'].touched">
+            Phone Number is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Fila 3: DNI y Photo -->
+      <div class="two-columns">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>DNI</mat-label>
+          <input matInput [formControlName]="'dni'" placeholder="72373184">
+          <mat-error *ngIf="newAccountForm.controls['dni'].invalid && newAccountForm.controls['dni'].touched">
+            DNI is required.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Photo</mat-label>
+          <input matInput [formControlName]="'photo'"  placeholder="Upload photo">
+          <mat-error *ngIf="newAccountForm.controls['photo'].invalid && newAccountForm.controls['photo'].touched">
+            Photo is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Fila 4: Description Profile -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Description Profile</mat-label>
+        <textarea matInput [formControlName]="'descriptionProfile'" rows="3"></textarea>
+        <mat-error *ngIf="newAccountForm.controls['descriptionProfile'].invalid && newAccountForm.controls['descriptionProfile'].touched">
+          Description is required.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Botón de enviar -->
+      <button mat-raised-button color="primary" class="full-width" type="submit" [disabled]="newAccountForm.invalid">
+        Continue
+      </button>
+    </form>
+  </div>
+</div>

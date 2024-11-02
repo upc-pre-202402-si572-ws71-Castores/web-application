@@ -1,0 +1,118 @@
+/* Sidebar */
+.sidebar {
+    position: static;
+    top: 100px; /* Mantiene la separación con el navbar */
+    left: 0;
+    height: calc(100vh - 124px); /* Altura completa */
+    width: 250px;
+    background-color: #E7ECEF; /* Fondo claro */
+    padding: 20px;
+    z-index: 999; /* Debe estar debajo del navbar */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style: none; /* Elimina los puntos de la lista */
+
+  }
+
+  ul ul {
+    list-style-type: none;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    }
+
+    ul.active{
+        background-color: #002C61; /* Fondo azul para la opción activa */
+        color: white; /* Texto blanco para contraste */
+    }
+  /* Lista de navegación */
+  .nav {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding-left: 0; /* Elimina el padding predeterminado de la lista */
+    margin-left: 0; /* Elimina el margen predeterminado de la lista */
+    text-align: center;
+    align-items: center;
+  }
+
+  /* Estilos del contenido */
+  .content {
+    margin-left: 250px; /* El contenido debe moverse hacia la derecha para no estar encima del sidebar */
+    padding: 20px;
+  }
+
+  /* Elementos de la lista de navegación */
+  .nav-item {
+    margin-bottom: 10px; /* Añade un espacio entre los elementos para que no queden muy juntos */
+    text-align: center;
+    align-items: center;
+  }
+
+  /* Estilo de los enlaces */
+  .nav-link {
+    list-style: none; /* Elimina los puntos de la lista */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: -80px;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #000;
+    font-size: 18px; /* Ajuste del tamaño de fuente */
+    text-decoration: none; /* Elimina subrayado */
+    border-radius: 12px; /* Bordes redondeados */
+    transition: background-color 0.2s ease, padding-left 0.2s ease;
+    padding-left: 80px; /* Mejora el espaciado de los íconos y el texto */
+  }
+
+  /* Estilo para el enlace activo */
+  .nav-link.active {
+    background-color: #002C61; /* Fondo azul para la opción activa */
+    color: white; /* Texto blanco para contraste */
+    text-align: center;
+  }
+
+  /* Hover para los enlaces */
+  .nav-link:hover {
+    background-color: #d0e7ff; /* Fondo más claro en hover */
+    padding-left: 60px; /* Efecto deslizante al pasar el cursor */
+    color: #002C61;
+    text-align: center;
+  }
+
+  /* Íconos en los enlaces */
+  .nav-link mat-icon {
+    margin-right: 10px; /* Espacio entre icono y texto */
+
+  }
+
+  /* Lista de solicitudes */
+  .request-list {
+    margin-top: 20px;
+    margin-left: -40px;
+
+  }
+
+  /* Botones de solicitudes */
+  .request-item {
+    background-color: #EAF3FF;
+    font-size: 16px; /* Ajuste del tamaño de fuente */
+    color: #002C61;
+    width: 100%;
+    margin: 5px 0;
+    border-radius: 10px;
+    padding-left: 15px;
+
+    padding: 15px;
+    border: none;
+    text-align: center;
+    transition: background-color 0.2s ease, padding-left 0.2s ease;
+  }
+
+  /* Hover para las solicitudes */
+  .request-item:hover {
+    background-color: #d0e7ff;
+    padding-left: 20px; /* Efecto deslizante */
+  }
