@@ -39,7 +39,7 @@ export class TransportappService {
       Authorization: `Bearer ${token}`, // Incluye el token en la cabecera
       Accept: 'application/json', // Define que la respuesta debe ser JSON
     });
-  
+
     return this.http.get<any>(`${this.baseUrl}/request/${requestId}`, { headers }).pipe(
       catchError(error => {
         console.error('Error fetching request:', error);
@@ -47,7 +47,7 @@ export class TransportappService {
       })
     );
   }
-  
+
   getUserProfile(): Observable<any> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
@@ -55,6 +55,26 @@ export class TransportappService {
     });
     return this.http.get<any>(`${this.baseUrl}/users`, { headers });
   }
+
+  // PUT CREATE REQUEST
+  createRequest(requestData: {
+    startLocation: string;
+    arrivalPlace: string;
+    descriptionRequest: string;
+    idealTemperature: number;
+    idealWeight: number;
+    offeredPrice: number;
+  }): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+
+    return this.http.post<any>(`${this.baseUrl}/request`, requestData, { headers });
+  }
+
+
+
   // GET SEE-OFFER
   getOfferById(offerId: number): Observable<any> {
     const token = localStorage.getItem('token');

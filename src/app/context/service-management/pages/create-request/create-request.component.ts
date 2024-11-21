@@ -9,4 +9,7 @@ import { CommonModule } from '@angular/common';
   standalone: true, // Declaramos como independiente
   imports: [CommonModule, CreateRequestFormComponent] // Importa el formulario
 })
-export class CreateRequestPageComponent {}
+export class CreateRequestPageComponent {
+
+
+}
