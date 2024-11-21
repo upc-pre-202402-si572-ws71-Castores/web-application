@@ -1,4 +1,152 @@
-.history-client {
-    background-color: #E7ECEF;
-    height: 100vh;
+.offers-container {
+}
+.cascade-cards {
+  height: 70vh;
+  overflow-y: auto;
+
+}
+
+h2 {
+  font-size: 24px;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.offer-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.offer-info {
+  display: flex;
+  gap: 60px;
+  flex-direction: row;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  gap: 40px;
+  text-align: center;
+}
+
+.details div {
+  margin-bottom: 10px;
+}
+
+.details p {
+  margin: 0;
+  color: #666;
+}
+
+.details h3 {
+  font-size: 45px;
+  color: #516F91;
+
+}
+
+.locations{
+  display: flex;
+  gap: 40px;
+  flex-direction: row;
+  text-align: center;
+}
+
+.locations p {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
+}
+
+.locations strong {
+  font-size: 16px;
+  color: #2c3e50;
+}
+
+.locations fa-icon {
+  color: #2c3e50; /* Color del ícono */
+  margin-right: 5px; /* Espacio entre el ícono y el texto */
+  font-size: 30px; /* Tamaño del ícono */
+}
+.offer-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.offer-actions h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.confirm-btn {
+  background-color: #00a86b;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 35%;
+  height: 45px;
+}
+
+.confirm-btn:hover {
+  background-color: #009660;
+}
+
+.decline-btn {
+  background-color: white;
+  border: 2px solid #e74c3c;
+  color: #e74c3c;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 35%;
+  height: 45px;
+}
+
+.decline-btn:hover {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.offer-price {
+  text-align: center;
+  margin-left: 50px;
+}
+
+.client-info {
+  text-align: center;
+}
+
+.client-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px 0;
+}
+
+.client-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.client-info strong {
+  font-size: 16px;
+  color: #2c3e50;
+}
+.price-client p{
+  font-size: 80px;
 }

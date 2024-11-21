@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://jsonplaceholder.typicode.com/users'  // Cambia esto por la API real si es necesario
+    apiUrl: 'https://transportapp-crg0gmeuevexfscb.eastus2-01.azurewebsites.net/api/v1'  // Cambia esto por la API real si es necesario
   };

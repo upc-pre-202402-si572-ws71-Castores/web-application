@@ -9,20 +9,22 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
     selector: 'app-create-request-form',
     standalone: true, // Indicamos que este componente es independiente
     imports: [
-      CommonModule, 
-      ReactiveFormsModule,
-      MatInputModule,
-      MatCheckboxModule,
-      MatIconModule,
-      MatCardModule,
-      MatFormFieldModule,
-      MatSelectModule,
-      MatButtonModule
+        CommonModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatCheckboxModule,
+        MatIconModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatButtonModule,
+        TranslateModule
     ],
     templateUrl: './create-request-form.component.html',
     styleUrls: ['./create-request-form.component.css'],
@@ -42,11 +44,11 @@ import { MatButtonModule } from '@angular/material/button';
         description: [''],
       });
     }
-  
+
     onSubmit() {
       if (this.requestForm.valid) {
         console.log('Form Data:', this.requestForm.value);
       }
     }
- 
+
   }
