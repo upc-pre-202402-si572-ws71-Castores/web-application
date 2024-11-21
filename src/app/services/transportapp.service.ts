@@ -24,7 +24,7 @@ export class TransportappService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`
     });
-    
+
     return this.http.get<any>(`${this.baseUrl}/users/${userId}`, { headers }).pipe(
       tap(response => {
         // Guardar el primer rol del array roles en el localStorage
@@ -41,8 +41,16 @@ export class TransportappService {
     });
     return this.http.get<any>(`${this.baseUrl}/users`, { headers });
   }
+  // GET SEE-OFFER
+  getOfferById(offerId: number): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+    return this.http.get<any>(`${this.baseUrl}/request/${offerId}`, { headers });
+  }
 
-  // Método para registrarse
+  // Metodo para registrarse
   signUp(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/authentication/sign-up`, data);
   }
