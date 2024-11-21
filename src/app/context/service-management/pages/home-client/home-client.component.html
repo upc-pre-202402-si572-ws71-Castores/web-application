@@ -1,19 +1,22 @@
 <div class="dashboard-container">
 
   <div class= "right-cards">
-    <div class= "right-cards-bottom">
+    <div class="right-cards-bottom">
+      <!-- Tarjeta de Peso -->
       <div class="card weight-card">
         <h3>Weight</h3>
         <div class="content">
-          <span class="value">1.7 t</span>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7TBc1TcdvLKm1FNIM2ySRr9hGKTuK0RQljYoQuv6f412KLbPB">
+          <!-- Mostrar dinámicamente el peso -->
+          <span class="value">{{ request?.idealWeight || 'N/A' }} Kg</span>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7TBc1TcdvLKm1FNIM2ySRr9hGKTuK0RQljYoQuv6f412KLbPB" alt="Weight Icon">
         </div>
       </div>
       <div class="card temperature-card">
         <h3>{{ 'home.temperature' | translate }}</h3>
         <div class="content">
-          <span class="value">22°C</span>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRycHfhTeqON5T8r8IPKqoYCncsZpgNHhC_UG96SxD8bR5RdMNZ">
+          <!-- Mostrar dinámicamente la temperatura -->
+          <span class="value">{{ request?.idealTemperature || 'N/A' }}°C</span>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRycHfhTeqON5T8r8IPKqoYCncsZpgNHhC_UG96SxD8bR5RdMNZ" alt="Temperature Icon">
         </div>
         <div class="toggle">
           <label>{{ 'home.autosystem' | translate }}</label>
@@ -21,38 +24,38 @@
         </div>
       </div>
     </div>
-    <div class="current-request-card">
+    <div class="current-request-card" *ngIf="request">
       <div class="left-current-request">
         <h3>{{ 'home.currentrequest' | translate }}</h3>
         <div class="request-card">
           <div class="request-info">
             <div class="card-sub-monitoring">
               <span class="label">{{ 'home.idealtemperature' | translate }}</span>
-              <span class="value">21°C</span>
+              <span class="value">16 °C</span>
             </div>
             <div class="locations">
-              <mat-icon> location_on</mat-icon>
+              <mat-icon>location_on</mat-icon>
               <p>{{ 'home.startlocation' | translate }}</p>
-              <strong>Lima</strong>
+              <strong>{{ request.startLocation }}</strong>
             </div>
           </div>
           <div class="request-info">
             <div class="card-sub-monitoring">
               <span class="label">{{ 'home.idealweight' | translate }}</span>
-              <span class="value">1.7 t</span>
+              <span class="value">20 Kg</span>
             </div>
             <div class="locations">
-              <mat-icon> location_on</mat-icon>
+              <mat-icon>location_on</mat-icon>
               <p>{{ 'home.arrivalplace' | translate }}</p>
-              <strong>Lambayeque</strong>
+              <strong>{{ request.arrivalPlace }}</strong>
             </div>
           </div>
         </div>
       </div>
       <div class="right-current-request">
-          <span>{{ 'home.client' | translate }}</span>
+          <span>Carrier</span>
           <img src="https://yt3.googleusercontent.com/ytc/AIdro_mlaCQQm9EWnAme2UV11II3wDltUcMRk72jwg_hjjqzgw=s900-c-k-c0x00ffffff-no-rj" alt="Client" />
-          <span>Carlos Benites</span>
+          <span>Sebastian Castro</span>
       </div>
     </div>
   </div>

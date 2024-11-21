@@ -40,14 +40,6 @@ export const routes: Routes = [
             (m) => m.ForgotPasswordPageComponent
           ),
       },
-      // page not found 404
-      {
-        path: '**',
-        loadComponent: () =>
-          import('./public/pages/page-not-found/page-not-found.component').then(
-            (m) => m.PageNotFoundComponent,
-          ),
-      },
       {
         path: 'new-password',
         loadComponent: () =>
@@ -62,6 +54,14 @@ export const routes: Routes = [
             (m) => m.NewAccountComponent
           ),
       },
+      // page not found 404
+      {
+        path: '**',
+        loadComponent: () =>
+          import('./public/pages/page-not-found/page-not-found.component').then(
+            (m) => m.PageNotFoundComponent,
+          ),
+      }
     ],
   },
   {

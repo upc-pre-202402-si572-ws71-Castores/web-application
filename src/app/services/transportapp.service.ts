@@ -33,7 +33,21 @@ export class TransportappService {
       })
     );
   }
-
+  getRequestById(requestId: number): Observable<any> {
+    const token = localStorage.getItem('token'); // Obtiene el token almacenado
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`, // Incluye el token en la cabecera
+      Accept: 'application/json', // Define que la respuesta debe ser JSON
+    });
+  
+    return this.http.get<any>(`${this.baseUrl}/request/${requestId}`, { headers }).pipe(
+      catchError(error => {
+        console.error('Error fetching request:', error);
+        return throwError(error); // Propaga el error si ocurre
+      })
+    );
+  }
+  
   getUserProfile(): Observable<any> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
@@ -53,5 +67,23 @@ export class TransportappService {
   // Metodo para registrarse
   signUp(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/authentication/sign-up`, data);
+  }
+
+  createProfile(profileData: any): Observable<any> {
+    const token = localStorage.getItem('token'); // Si es necesario autenticar la solicitud
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.post<any>(`${this.baseUrl}/api/v1/profiles`, profileData, { headers }).pipe(
+      tap(response => {
+        console.log('Profile created successfully:', response);
+      }),
+      catchError(error => {
+        console.error('Error creating profile:', error);
+        return throwError(error);
+      })
+    );
   }
 }
