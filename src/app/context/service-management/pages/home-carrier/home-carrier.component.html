@@ -1,58 +1,61 @@
 <div class="dashboard-container">
 
   <div class= "right-cards">
-    <div class= "right-cards-bottom">
+    <div class="right-cards-bottom">
+      <!-- Tarjeta de Peso -->
       <div class="card weight-card">
         <h3>Weight</h3>
         <div class="content">
-          <span class="value">1.7 t</span>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7TBc1TcdvLKm1FNIM2ySRr9hGKTuK0RQljYoQuv6f412KLbPB">
+          <!-- Mostrar dinámicamente el peso -->
+          <span class="value">{{ request?.idealWeight || 'N/A' }} Kg</span>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7TBc1TcdvLKm1FNIM2ySRr9hGKTuK0RQljYoQuv6f412KLbPB" alt="Weight Icon">
         </div>
       </div>
       <div class="card temperature-card">
-        <h3>Temperature</h3>
+        <h3>{{ 'home.temperature' | translate }}</h3>
         <div class="content">
-          <span class="value">22°C</span>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRycHfhTeqON5T8r8IPKqoYCncsZpgNHhC_UG96SxD8bR5RdMNZ">
+          <!-- Mostrar dinámicamente la temperatura -->
+          <span class="value">{{ request?.idealTemperature || 'N/A' }}°C</span>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRycHfhTeqON5T8r8IPKqoYCncsZpgNHhC_UG96SxD8bR5RdMNZ" alt="Temperature Icon">
         </div>
         <div class="toggle">
-          <label>Auto Room Temperature System</label>
+          <label>{{ 'home.autosystem' | translate }}</label>
           <input type="checkbox" checked />
         </div>
       </div>
     </div>
-    <div class="current-request-card">
+    <div class="current-request-card" *ngIf="request">
       <div class="left-current-request">
-        <h3>Current request</h3>
+        <h3>{{ 'home.currentrequest' | translate }}</h3>
         <div class="request-card">
           <div class="request-info">
             <div class="card-sub-monitoring">
-              <span class="label">Ideal temperature</span>
-              <span class="value">21°C</span>
+              <span class="label">{{ 'home.idealtemperature' | translate }}</span>
+              <span class="value">16 °C</span>
             </div>
             <div class="locations">
-              <mat-icon> location_on</mat-icon>
-              <p>Start Location</p>
-              <strong>Lima</strong>
+              <mat-icon>location_on</mat-icon>
+              <p>{{ 'home.startlocation' | translate }}</p>
+              <strong>{{ request.startLocation }}</strong>
             </div>
           </div>
           <div class="request-info">
             <div class="card-sub-monitoring">
-              <span class="label">Ideal Weight</span>
-              <span class="value">1.7 t</span>
+              <span class="label">{{ 'home.idealweight' | translate }}</span>
+              <span class="value">20 Kg</span>
             </div>
             <div class="locations">
-              <mat-icon> location_on</mat-icon>
-              <p>Arrival place</p>
-              <strong>Lambayeque</strong>
+              <mat-icon>location_on</mat-icon>
+              <p>{{ 'home.arrivalplace' | translate }}</p>
+              <strong>{{ request.arrivalPlace }}</strong>
             </div>
           </div>
         </div>
       </div>
       <div class="right-current-request">
-        <span>Carrier</span>
+        <span>Client</span>
         <img src="https://yt3.googleusercontent.com/ytc/AIdro_mlaCQQm9EWnAme2UV11II3wDltUcMRk72jwg_hjjqzgw=s900-c-k-c0x00ffffff-no-rj" alt="Client" />
-        <span>Carlos Benites</span>
+        <span>Rod Sabino</span>
       </div>
     </div>
   </div>

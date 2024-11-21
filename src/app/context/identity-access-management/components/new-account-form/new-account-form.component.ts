@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { TransportappService } from '../../../../services/transportapp.service'; // Ajusta el path según tu estructura de carpetas
 
 @Component({
   selector: 'app-new-account-form',
@@ -24,7 +25,7 @@ export class NewAccountFormComponent {
   newAccountForm: FormGroup;
   hidePassword = true; // Para mostrar/ocultar contraseña
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private transportAppService: TransportappService) {
     this.newAccountForm = this.fb.group({
       fullName: ['', [Validators.required]],
       province: ['', [Validators.required]],
@@ -36,10 +37,53 @@ export class NewAccountFormComponent {
     });
   }
 
+  signIn() {
+    // Recuperar email y contraseña de localStorage
+    const email = localStorage.getItem('userEmail');
+    const password = localStorage.getItem('userPassword');
+
+    if (!email || !password) {
+      console.error('No se encontraron credenciales almacenadas.');
+      return;
+    }
+
+    // Llamar al método signIn del servicio
+    this.transportAppService.signIn({ username: email, password }).subscribe(
+      response => {
+        console.log('Inicio de sesión exitoso:', response);
+        const token = response.token;
+
+        // Guardar el token en localStorage
+        localStorage.setItem('token', token);
+
+        // Opcional: Guardar el ID del usuario para futuras consultas
+        localStorage.setItem('userId', response.id.toString());
+      },
+      error => {
+        console.error('Error en el inicio de sesión:', error);
+      }
+    );
+  }
   onSubmit() {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      console.error('No hay token de autenticación. Por favor, inicia sesión primero.');
+      return;
+    }
+
     if (this.newAccountForm.valid) {
-      console.log('Account Created:', this.newAccountForm.value);
-      // Aquí puedes manejar la creación de la cuenta, como enviar la información al backend
+      const profileData = this.newAccountForm.value;
+
+      // Llamar al método createProfile del servicio
+      this.transportAppService.createProfile(profileData).subscribe(
+        response => {
+          console.log('Perfil creado exitosamente:', response);
+        },
+        error => {
+          console.error('Error al crear el perfil:', error);
+        }
+      );
     }
   }
 

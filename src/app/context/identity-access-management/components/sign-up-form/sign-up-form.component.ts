@@ -48,6 +48,13 @@ export class SignUpFormComponent {
         roles: [this.signUpForm.value.role] // Asigna el rol seleccionado
       };
 
+    // Guardar en localStorage
+    localStorage.setItem('userEmail', signUpData.username);
+    localStorage.setItem('userPassword', signUpData.password);
+
+    console.log("Datos guardados en localStorage:");
+
+
       this.transportAppService.signUp(signUpData).subscribe(
         response => {
           console.log("Registro exitoso:", response);
