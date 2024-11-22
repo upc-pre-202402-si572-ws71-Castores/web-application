@@ -70,6 +70,22 @@ export class TransportappService {
       })
     );
   }
+  // PUT PROFILE
+  updateProfile(profileId: number, profileData: any): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.put<any>(`${this.baseUrl}/api/v1/profiles/${profileId}`, profileData, { headers }).pipe(
+      tap(() => console.log('Profile updated successfully')),
+      catchError((error) => {
+        console.error('Error updating profile:', error);
+        return throwError(() => new Error('Failed to update profile'));
+      })
+    );
+  }
 
 
   // PUT CREATE REQUEST

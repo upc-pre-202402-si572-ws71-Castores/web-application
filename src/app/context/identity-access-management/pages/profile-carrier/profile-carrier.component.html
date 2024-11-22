@@ -1,6 +1,6 @@
 <div class="profile-container">
   <div class="container-cards">
-    <!-- Left Section: Profile Card -->
+    <!-- Profile Card -->
     <div class="profile-card" *ngIf="profile">
       <img
         src="https://cdn-icons-png.flaticon.com/512/4042/4042171.png"
@@ -14,31 +14,63 @@
         en tiempo real de mis vehículos, garantizando entregas seguras y
         puntuales.
       </p>
-      <button class="edit-btn">Edit Profile</button>
+      <button class="edit-btn" (click)="toggleEditMode()">
+        {{ isEditing ? 'Cancel' : 'Edit Profile' }}
+      </button>
     </div>
 
-    <!-- Right Section: Profile Details -->
+    <!-- Profile Details -->
     <div class="profile-details" *ngIf="profile">
-      <!-- Right Section: ultra right xd -->
-      <div class="profile-details-right">
-        <div class="profile-details-titles">
-          <p>Full Name</p>
-          <p>Cell Number</p>
-          <p>DNI</p>
-          <p>Location</p>
-          <p>Email</p>
+      <h3>Profile Information</h3>
+
+      <!-- Modo visualización -->
+      <div *ngIf="!isEditing">
+        <div class="profile-details-row">
+          <span>Full Name:</span>
+          <p>{{ profile.fullName }}</p>
+        </div>
+        <div class="profile-details-row">
+          <span>Phone:</span>
+          <p>{{ profile.phone }}</p>
+        </div>
+        <div class="profile-details-row">
+          <span>DNI:</span>
+          <p>{{ profile.dni }}</p>
+        </div>
+        <div class="profile-details-row">
+          <span>Location:</span>
+          <p>{{ profile.city }}</p>
+        </div>
+        <div class="profile-details-row">
+          <span>Email:</span>
+          <p>{{ profile.email }}</p>
+        </div>
+      </div>
+
+      <!-- Modo editable -->
+      <div *ngIf="isEditing">
+        <div class="profile-details-row">
+          <span>Full Name:</span>
+          <input [(ngModel)]="editableProfile.fullName" />
+        </div>
+        <div class="profile-details-row">
+          <span>Phone:</span>
+          <input [(ngModel)]="editableProfile.phone" />
+        </div>
+        <div class="profile-details-row">
+          <span>DNI:</span>
+          <input [(ngModel)]="editableProfile.dni" />
+        </div>
+        <div class="profile-details-row">
+          <span>Location:</span>
+          <input [(ngModel)]="editableProfile.city" />
+        </div>
+        <div class="profile-details-row">
+          <span>Email:</span>
+          <input [(ngModel)]="editableProfile.email" />
         </div>
 
-        <div class="profile-details-information">
-          <p>{{ profile.fullName }}</p>
-          <p>{{ profile.phone }}</p>
-          <p>{{ profile.dni }}</p>
-          <p>{{ profile.city }}</p>
-          <p>{{ profile.email }}</p>
-          <button class="add-vehicle-btn" (click)="openVehicleForm()">
-            Add vehicle
-          </button>
-        </div>
+        <button class="save-btn" (click)="saveProfile()">Save Changes</button>
       </div>
     </div>
   </div>
