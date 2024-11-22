@@ -14,18 +14,30 @@ import {MatFormField, MatLabel} from "@angular/material/form-field";
   standalone: true, // Declaramos como independiente
   imports: [CommonModule, VehicleFormComponent, MatLabel, MatFormField, ReactiveFormsModule, FormsModule] // Importa el formulario
 })
-export class ProfileCarrierPageComponent {
-  profile: any; // Perfil original
-  editableProfile: any; // Perfil editable
-  isEditing = false; // Estado para alternar entre los modos
+export class ProfileCarrierPageComponent implements OnInit {
+  profile: any; // Datos del perfil
+  isEditing: boolean = false; // Estado de edición
+  editForm: FormGroup; // Formulario reactivo para edición
 
   constructor(
-    private dialog: MatDialog,
-    private transportAppService: TransportappService
-  ) {}
+    private transportAppService: TransportappService,
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
+  ) {
+    this.editForm = this.fb.group({
+      firstName: [''],
+      lastName: [''],
+      email: [''],
+      address: [''],
+      birthday: [''],
+      dni: [''],
+      phone: [''],
+    });
+  }
 
   ngOnInit(): void {
-    const userId = localStorage.getItem('userId');
+    const userId = localStorage.getItem('userId'); // ID del usuario actual
 
     if (userId) {
       this.fetchProfile(userId);
@@ -38,7 +50,17 @@ export class ProfileCarrierPageComponent {
     this.transportAppService.getProfileById(userId).subscribe({
       next: (profileData) => {
         this.profile = profileData;
-        this.editableProfile = { ...profileData }; // Inicializa el perfil editable
+
+        // Actualizar formulario con datos actuales del perfil
+        this.editForm.patchValue({
+          firstName: profileData.fullName.split(' ')[0],
+          lastName: profileData.fullName.split(' ')[1] || '',
+          email: profileData.email,
+          address: profileData.city,
+          birthday: profileData.birthday,
+          dni: profileData.dni,
+          phone: profileData.phone,
+        });
       },
       error: (err) => {
         console.error('Error fetching profile:', err);
@@ -46,36 +68,42 @@ export class ProfileCarrierPageComponent {
     });
   }
 
-  toggleEditMode(): void {
-    this.isEditing = !this.isEditing;
-
-    if (!this.isEditing) {
-      this.editableProfile = { ...this.profile }; // Restaura los datos originales
-    }
+  enableEdit(): void {
+    this.isEditing = true; // Activa el modo edición
   }
 
-  saveProfile(): void {
-    const profileId = this.profile.id;
+  saveChanges(): void {
+    if (this.editForm.valid) {
+      const updatedProfile = { ...this.editForm.value, id: this.profile.id };
 
-    if (!profileId) {
-      console.error('Profile ID is missing');
-      return;
+      this.transportAppService.updateProfile(updatedProfile).subscribe({
+        next: () => {
+          this.isEditing = false; // Desactiva el modo edición
+          this.profile = { ...this.profile, ...updatedProfile }; // Actualiza el perfil local
+          this.snackBar.open('Profile updated successfully!', 'Close', {
+            duration: 3000,
+          });
+        },
+        error: (err) => {
+          console.error('Error updating profile:', err);
+          this.snackBar.open('Failed to update profile.', 'Close', {
+            duration: 3000,
+          });
+        },
+      });
     }
-
-    this.transportAppService.updateProfile(profileId, this.editableProfile).subscribe({
-      next: () => {
-        this.profile = { ...this.editableProfile };
-        this.isEditing = false; // Salir del modo edición
-        alert('Profile updated successfully!');
-      },
-      error: (err) => {
-        console.error('Error updating profile:', err);
-        alert('Failed to update profile. Please try again.');
-      },
+  }
+  openVehicleForm(): void {
+    this.dialog.open(VehicleFormComponent, {
+      width: '400px',
+    }).afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Vehicle form data:', result);
+        // Aquí puedes manejar el resultado del formulario si es necesario
+      }
     });
   }
-
-  openVehicleForm() {
-    this.dialog.open(VehicleFormComponent, { width: '300px' });
+  cancelEdit(): void {
+    this.isEditing = false; // Cancela edición
   }
 }

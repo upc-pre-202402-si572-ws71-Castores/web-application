@@ -1,6 +1,6 @@
 <div class="profile-container">
   <div class="container-cards">
-    <!-- Profile Card -->
+    <!-- Left Section: Profile Card -->
     <div class="profile-card" *ngIf="profile">
       <img
         src="https://cdn-icons-png.flaticon.com/512/4042/4042171.png"
@@ -14,63 +14,73 @@
         en tiempo real de mis vehículos, garantizando entregas seguras y
         puntuales.
       </p>
-      <button class="edit-btn" (click)="toggleEditMode()">
-        {{ isEditing ? 'Cancel' : 'Edit Profile' }}
-      </button>
+      <button class="edit-btn" *ngIf="!isEditing" (click)="enableEdit()">Edit Profile</button>
     </div>
 
-    <!-- Profile Details -->
+    <!-- Right Section: Profile Details -->
     <div class="profile-details" *ngIf="profile">
-      <h3>Profile Information</h3>
+      <div *ngIf="!isEditing" class="profile-details-right">
+        <div class="profile-details-titles">
+          <p>Full Name</p>
+          <p>Cell Number</p>
+          <p>DNI</p>
+          <p>Location</p>
+          <p>Email</p>
+        </div>
 
-      <!-- Modo visualización -->
-      <div *ngIf="!isEditing">
-        <div class="profile-details-row">
-          <span>Full Name:</span>
+        <div class="profile-details-information">
           <p>{{ profile.fullName }}</p>
-        </div>
-        <div class="profile-details-row">
-          <span>Phone:</span>
           <p>{{ profile.phone }}</p>
-        </div>
-        <div class="profile-details-row">
-          <span>DNI:</span>
           <p>{{ profile.dni }}</p>
-        </div>
-        <div class="profile-details-row">
-          <span>Location:</span>
           <p>{{ profile.city }}</p>
-        </div>
-        <div class="profile-details-row">
-          <span>Email:</span>
           <p>{{ profile.email }}</p>
+          <button class="add-vehicle-btn" (click)="openVehicleForm()">
+            Add vehicle
+          </button>
         </div>
       </div>
 
-      <!-- Modo editable -->
-      <div *ngIf="isEditing">
-        <div class="profile-details-row">
-          <span>Full Name:</span>
-          <input [(ngModel)]="editableProfile.fullName" />
-        </div>
-        <div class="profile-details-row">
-          <span>Phone:</span>
-          <input [(ngModel)]="editableProfile.phone" />
-        </div>
-        <div class="profile-details-row">
-          <span>DNI:</span>
-          <input [(ngModel)]="editableProfile.dni" />
-        </div>
-        <div class="profile-details-row">
-          <span>Location:</span>
-          <input [(ngModel)]="editableProfile.city" />
-        </div>
-        <div class="profile-details-row">
-          <span>Email:</span>
-          <input [(ngModel)]="editableProfile.email" />
-        </div>
+      <!-- Editable Form -->
+      <div *ngIf="isEditing" class="profile-details-right">
+        <form [formGroup]="editForm" (ngSubmit)="saveChanges()">
+          <mat-form-field class="full-width">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName" />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="address" />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Birthday</mat-label>
+            <input matInput type="date" formControlName="birthday" />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>DNI</mat-label>
+            <input matInput type="number" formControlName="dni" />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" />
+          </mat-form-field>
 
-        <button class="save-btn" (click)="saveProfile()">Save Changes</button>
+          <div class="form-actions">
+            <button mat-raised-button color="primary" type="submit">
+              Save Changes
+            </button>
+            <button mat-raised-button color="warn" (click)="cancelEdit()">
+              Cancel
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
