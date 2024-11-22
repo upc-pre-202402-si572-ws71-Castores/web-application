@@ -56,6 +56,22 @@ export class TransportappService {
     return this.http.get<any>(`${this.baseUrl}/users`, { headers });
   }
 
+  //GET PROFILE BY ID
+  getProfileById(userId: string): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.get<any>(`${this.baseUrl}/profiles/${userId}`, { headers }).pipe(
+      catchError((error) => {
+        console.error('Error fetching profile by ID:', error);
+        return throwError(() => new Error('Failed to fetch profile'));
+      })
+    );
+  }
+
+
   // PUT CREATE REQUEST
   createRequest(requestData: {
     startLocation: string;
