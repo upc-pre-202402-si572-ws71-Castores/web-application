@@ -59,32 +59,14 @@
       </div>
     </div>
   </div>
-  <div class= "left-cards">
+  <div class="left-cards">
     <div class="card notifications-card">
-      <h3>Notifications</h3>
-      <ul class="notification-list">
-        <li>
-          <span class="dot red"></span>
-          <div class="notification-content">
-            Thermostat regulates temperature
-            <p class="timestamp">5 min ago</p>
-          </div>
-        </li>
-        <li>
-          <span class="dot green"></span>
-          <div class="notification-content">
-            Delivery confirmation
-            <p class="timestamp">12 min ago</p>
-          </div>
-        </li>
-        <li>
-          <span class="dot green"></span>
-          <div class="notification-content">
-            Cargo tampering alarm
-            <p class="timestamp">16 min ago</p>
-          </div>
-        </li>
-      </ul>
+      <h3>{{ 'home.graphic' | translate }}</h3>
+      <app-temperature-weight-chart
+        [temperatureData]="temperatureData"
+        [weightData]="weightData"
+        [labels]="timeLabels">
+      </app-temperature-weight-chart>
     </div>
     <div class="card alarms-card">
       <h3>Alarms</h3>

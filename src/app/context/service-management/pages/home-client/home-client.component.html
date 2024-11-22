@@ -61,30 +61,12 @@
   </div>
   <div class= "left-cards">
     <div class="card notifications-card">
-      <h3>{{ 'home.notifications' | translate }}</h3>
-      <ul class="notification-list">
-        <li>
-          <span class="dot red"></span>
-          <div class="notification-content">
-            Thermostat regulates temperature
-            <p class="timestamp">{{ 'home.time1' | translate }} 5 {{'home.time2' | translate }}</p>
-          </div>
-        </li>
-        <li>
-          <span class="dot green"></span>
-          <div class="notification-content">
-            Delivery confirmation
-            <p class="timestamp">{{ 'home.time1' | translate }} 12 {{'home.time2' | translate }}</p>
-          </div>
-        </li>
-        <li>
-          <span class="dot green"></span>
-          <div class="notification-content">
-            Cargo tampering alarm
-            <p class="timestamp">{{ 'home.time1' | translate }} 16 {{'home.time2' | translate }}</p>
-          </div>
-        </li>
-      </ul>
+      <h3>{{ 'home.graphic' | translate }}</h3>
+      <app-temperature-weight-chart
+        [temperatureData]="temperatureData"
+        [weightData]="weightData"
+        [labels]="timeLabels">
+      </app-temperature-weight-chart>
     </div>
     <div class="card alarms-card">
       <h3>{{ 'home.alarms' | translate }}</h3>

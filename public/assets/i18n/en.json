@@ -30,7 +30,8 @@
     "time1": "",
     "time2": "min ago",
     "notifications": "Notifications",
-    "alarms": "Alarms"
+    "alarms": "Alarms",
+    "graphic": "Graphic"
   },
   "history":{
       "historyoffers": "History Offers",
