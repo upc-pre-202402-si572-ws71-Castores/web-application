@@ -1,95 +1,38 @@
 <div class="offers-container">
   <h2>{{ 'history.historyoffers' | translate }}</h2>
   <div class="cascade-cards">
-
-    <div class="offer-card">
+    <div class="offer-card" *ngFor="let offer of offers">
       <div class="offer-sub-card">
         <div class="offer-info">
           <div class="details">
             <div>
               <p>{{ 'history.idealtemperature' | translate }}</p>
-              <h3>21° C</h3>
+              <h3>{{ offer.idealTemperature }}° C</h3>
             </div>
             <div>
               <p>{{ 'history.idealweight' | translate }}</p>
-              <h3>1.7 t</h3>
+              <h3>{{ offer.idealWeight }} t</h3>
             </div>
           </div>
           <div class="locations">
             <div>
               <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
-              <p>
-                {{ 'history.startlocation' | translate }}
-              </p>
-              <p><strong>Lima</strong></p>
-              <p>{{ 'history.startdate' | translate }}: 18/03/2024</p>
+              <p>{{ 'history.startlocation' | translate }}</p>
+              <p><strong>{{ offer.startLocation }}</strong></p>
+              <p>{{ 'history.startdate' | translate }}: {{ offer.startDate | date }}</p>
             </div>
             <div>
               <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
-              <p>
-                {{ 'history.arrivalplace' | translate }}
-              </p>
-              <p><strong>Lambayeque</strong></p>
-              <p> {{ 'history.arrivaldate' | translate }}: 22/03/2024</p>
+              <p>{{ 'history.arrivalplace' | translate }}</p>
+              <p><strong>{{ offer.arrivalPlace }}</strong></p>
+              <p>{{ 'history.arrivaldate' | translate }}: {{ offer.arrivalDate | date }}</p>
             </div>
           </div>
         </div>
       </div>
       <div class="offer-price">
-        <div class="client-info">
-          <p><strong>{{ 'history.carrier' | translate }}</strong></p>
-          <img src="https://i.pinimg.com/474x/be/a0/58/bea05869ef7e111eb96f0393dde0888a.jpg" alt="Client Picture" class="client-image" />
-          <p><strong>Manuel Zevallos</strong></p>
-          <p>Cargo truck</p>
-          <p>S/.200</p>
-        </div>
+        <h3>S/ {{ offer.offeredPrice }}</h3>
       </div>
     </div>
-    <!-- Duplicate the offer card for the second offer -->
-    <div class="offer-card">
-      <div class="offer-sub-card">
-        <div class="offer-info">
-          <div class="details">
-            <div>
-              <p>{{ 'history.idealtemperature' | translate }}</p>
-              <h3>21° C</h3>
-            </div>
-            <div>
-              <p>{{ 'history.idealweight' | translate }}</p>
-              <h3>1.7 t</h3>
-            </div>
-          </div>
-          <div class="locations">
-            <div>
-              <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
-              <p>
-                {{ 'history.startlocation' | translate }}
-              </p>
-              <p><strong>Lima</strong></p>
-              <p>{{ 'history.startdate' | translate }}: 18/03/2024</p>
-            </div>
-            <div>
-              <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
-              <p>
-                {{ 'history.arrivalplace' | translate }}
-              </p>
-              <p><strong>Lambayeque</strong></p>
-              <p> {{ 'history.arrivaldate' | translate }}: 22/03/2024</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="offer-price">
-        <div class="client-info">
-          <p><strong>{{ 'history.carrier' | translate }}</strong></p>
-          <img src="https://i.pinimg.com/474x/be/a0/58/bea05869ef7e111eb96f0393dde0888a.jpg" alt="Client Picture" class="client-image" />
-          <p><strong>Manuel Zevallos</strong></p>
-          <p>Cargo truck</p>
-          <p>S/.200</p>
-        </div>
-      </div>
-    </div>
-    <!-- Duplicate the offer card for the second offer -->
-
   </div>
 </div>
