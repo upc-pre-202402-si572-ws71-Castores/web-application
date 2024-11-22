@@ -69,32 +69,19 @@
       </app-temperature-weight-chart>
     </div>
     <div class="card alarms-card">
-      <h3>{{ 'home.alarms' | translate }}</h3>
+      <h3>Alarms</h3>
       <ul class="notification-list">
-        <li>
-          <span class="dot red"></span>
+        <li *ngFor="let alarm of alarms" [ngClass]="{'red': alarm.type === 'red', 'green': alarm.type === 'green'}">
+          <span class="dot" [ngClass]="alarm.type"></span>
           <div class="notification-content">
-            Temperature rose by 5°
-            <p class="timestamp">{{ 'home.time1' | translate }} 5 {{'home.time2' | translate }}</p>
-          </div>
-        </li>
-        <li>
-          <span class="dot green"></span>
-          <div class="notification-content">
-            Delay alarm
-            <p class="timestamp">{{ 'home.time1' | translate }} 12 {{'home.time2' | translate }}</p>
-          </div>
-        </li>
-        <li>
-          <span class="dot green"></span>
-          <div class="notification-content">
-            Cargo tampering alarm
-            <p class="timestamp">{{ 'home.time1' | translate }} 16 {{'home.time2' | translate }}</p>
+            <span>{{ alarm.message }}</span>
+            <p class="timestamp">{{ alarm.timestamp }}</p>
           </div>
         </li>
       </ul>
-
+      
     </div>
+    
   </div>
 
 </div>
